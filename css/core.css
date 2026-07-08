@@ -235,3 +235,35 @@ h2.section-title {
     .content-container { margin-left: 0; width: 100%; padding: 2rem 5%; }
     h1 { font-size: 2.5rem; }
 }
+
+/* Print Styles for Native PDF Generation */
+@media print {
+    body, .app-wrapper, .content-container {
+        background: #fff !important;
+        color: #000 !important;
+    }
+    .glass-nav, .blob, .contact-actions {
+        display: none !important;
+    }
+    .content-container {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    h1, h2, h3, h4, p, span {
+        color: #000 !important;
+        background: transparent !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+    .glass-panel, .edu-card, .skills-glass-container, .job-card {
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        page-break-inside: avoid;
+    }
+    .skill-tag {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+    }
+}

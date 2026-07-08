@@ -1,67 +1,67 @@
-﻿[
-    {
-        "url":  "/perfiles/carlos-ruiz/",
-        "tags":  [
-                     "ingenierÃ­a",
-                     "informÃ¡tica",
-                     "desarrollo",
-                     "backend",
-                     "software"
-                 ],
-        "name":  "Carlos Ruiz",
-        "id":  "carlos-ruiz",
-        "role":  "Ingeniero en InformÃ¡tica"
-    },
-    {
-        "url":  "/perfiles/ana-silva/",
-        "tags":  [
-                     "diseÃ±o",
-                     "ux",
-                     "ui",
-                     "interfaces",
-                     "figma"
-                 ],
-        "name":  "Ana Silva",
-        "id":  "ana-silva",
-        "role":  "DiseÃ±adora UX/UI"
-    },
-    {
-        "url":  "/perfiles/luis-torres/",
-        "tags":  [
-                     "cloud",
-                     "aws",
-                     "gcp",
-                     "devops",
-                     "infraestructura"
-                 ],
-        "name":  "Luis Torres",
-        "id":  "luis-torres",
-        "role":  "Arquitecto Cloud"
-    },
-    {
-        "url":  "/perfiles/maria-gomez/",
-        "tags":  [
-                     "datos",
-                     "data science",
-                     "machine learning",
-                     "python",
-                     "ai"
-                 ],
-        "name":  "MarÃ­a GÃ³mez",
-        "id":  "maria-gomez",
-        "role":  "CientÃ­fica de Datos"
-    },
-    {
-        "url":  "/perfiles/juan-perez/",
-        "tags":  [
-                     "gerencia",
-                     "proyectos",
-                     "scrum",
-                     "agile",
-                     "pmp"
-                 ],
-        "name":  "Juan PÃ©rez",
-        "id":  "juan-perez",
-        "role":  "Gerente de Proyectos"
-    }
+[
+  {
+    "id": "carlos-ruiz",
+    "name": "Carlos Ruiz",
+    "role": "Ingeniero en Informática",
+    "tags": [
+      "ingeniería",
+      "informática",
+      "desarrollo",
+      "backend",
+      "software"
+    ],
+    "url": "/perfiles/carlos-ruiz/"
+  },
+  {
+    "id": "ana-silva",
+    "name": "Ana Silva",
+    "role": "Diseñadora UX/UI",
+    "tags": [
+      "diseño",
+      "ux",
+      "ui",
+      "interfaces",
+      "figma"
+    ],
+    "url": "/perfiles/ana-silva/"
+  },
+  {
+    "id": "luis-torres",
+    "name": "Luis Torres",
+    "role": "Arquitecto Cloud",
+    "tags": [
+      "cloud",
+      "aws",
+      "gcp",
+      "devops",
+      "infraestructura"
+    ],
+    "url": "/perfiles/luis-torres/"
+  },
+  {
+    "id": "maria-gomez",
+    "name": "María Gómez",
+    "role": "Científica de Datos",
+    "tags": [
+      "datos",
+      "data science",
+      "machine learning",
+      "python",
+      "ai"
+    ],
+    "url": "/perfiles/maria-gomez/"
+  },
+  {
+    "id": "juan-perez",
+    "name": "Juan Pérez",
+    "role": "Gerente de Proyectos",
+    "tags": [
+      "gerencia",
+      "proyectos",
+      "scrum",
+      "agile",
+      "pmp"
+    ],
+    "url": "/perfiles/juan-perez/"
+  }
 ]

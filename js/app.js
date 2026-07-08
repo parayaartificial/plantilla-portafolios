@@ -16,23 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnPdf) {
         btnPdf.addEventListener('click', (e) => {
             e.preventDefault();
-            btnPdf.textContent = '⏳ Generando PDF...';
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
-            script.onload = () => {
-                const element = document.querySelector('.content-container');
-                const opt = {
-                    margin:       0.5,
-                    filename:     `${portfolioData.personal.name.replace(/\s+/g, '_')}_CV.pdf`,
-                    image:        { type: 'jpeg', quality: 0.98 },
-                    html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#0B0E14' },
-                    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-                };
-                html2pdf().set(opt).from(element).save().then(() => {
-                    btnPdf.textContent = '📄 Descargar PDF';
-                });
-            };
-            document.head.appendChild(script);
+            window.print();
         });
     }
 
