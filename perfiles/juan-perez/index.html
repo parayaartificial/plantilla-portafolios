@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Ejecutivo</title>
+    <meta name="description" content="Curriculum Vitae y Portafolio Ejecutivo.">
+    <!-- Google Fonts: Inter and Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/themes/default.css">
+    <link rel="stylesheet" href="/css/core.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar Flotante -->
+        <nav class="glass-nav">
+            <div class="nav-brand">PA</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-item">Perfil</a></li>
+                <li><a href="#experience" class="nav-item">Experiencia</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#contact" class="nav-item">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-container">
+            <!-- Hero Section -->
+            <section id="about" class="hero fade-up">
+                <div class="hero-content">
+                    <div class="badge">Disponible para nuevos retos</div>
+                    <h1 id="ui-name" class="gradient-text">Cargando...</h1>
+                    <h2 id="ui-role"></h2>
+                    <p class="summary glass-panel" id="ui-summary"></p>
+                    <div class="contact-actions">
+                        <a href="#contact" class="btn btn-primary">Trabajemos Juntos</a>
+                        <a href="#" id="ui-linkedin" target="_blank" class="btn btn-outline">Ver LinkedIn</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Timeline -->
+            <section id="experience" class="fade-up">
+                <h2 class="section-title">Trayectoria <span class="accent">Profesional</span></h2>
+                <div class="timeline" id="ui-experience"></div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="fade-up">
+                <h2 class="section-title">Formación <span class="accent">Académica</span></h2>
+                <div class="grid-2" id="ui-education"></div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="fade-up">
+                <h2 class="section-title">Tech & <span class="accent">Skills</span></h2>
+                <div class="skills-glass-container" id="ui-skills"></div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="fade-up">
+                <div class="contact-glass">
+                    <h2 class="section-title">Iniciemos una <span class="accent">Conversación</span></h2>
+                    <!-- REEMPLAZAR ACCESS_KEY por la llave real de Web3Forms -->
+                    <form action="https://api.web3forms.com/submit" method="POST" class="modern-form">
+                        <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+                        <div class="input-group">
+                            <input type="text" name="name" required>
+                            <label>Tu Nombre</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" required>
+                            <label>Correo Electrónico</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea name="message" rows="4" required></textarea>
+                            <label>Mensaje o Propuesta</label>
+                        </div>
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <button type="submit" class="btn btn-primary w-full">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Bloques decorativos para Glassmorphism -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <script src="/data.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
