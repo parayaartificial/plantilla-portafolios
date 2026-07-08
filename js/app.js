@@ -1,10 +1,9 @@
-// Inyección de Datos y Generación ATS
+// Inyección de Datos y Animaciones
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Inyectar datos en la interfaz visual (Humana)
+    // 1. Inyectar datos UI
     document.getElementById('ui-name').textContent = portfolioData.personal.name;
     document.getElementById('ui-role').textContent = portfolioData.personal.role;
     document.getElementById('ui-summary').textContent = portfolioData.personal.summary;
-    document.getElementById('ui-email').href = `mailto:${portfolioData.personal.email}`;
     document.getElementById('ui-linkedin').href = portfolioData.personal.linkedin;
 
     const expContainer = document.getElementById('ui-experience');
@@ -12,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expContainer.innerHTML += `
             <div class="job-card">
                 <h3>${job.title}</h3>
-                <h4>${job.company} <span>| ${job.period}</span></h4>
+                <h4>${job.company} • ${job.period}</h4>
                 <p>${job.description}</p>
             </div>
         `;
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         eduContainer.innerHTML += `
             <div class="edu-card">
                 <h3>${edu.degree}</h3>
-                <p>${edu.institution} | ${edu.year}</p>
+                <p>${edu.institution}<br>${edu.year}</p>
             </div>
         `;
     });
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         skillsContainer.innerHTML += `<span class="skill-tag">${skill}</span>`;
     });
 
-    // 2. Inyectar JSON-LD (Schema.org) para lectura pura de IAs (ATS)
+    // 2. ATS Schema Inyection
     const jsonLd = {
         "@context": "https://schema.org/",
         "@type": "Person",
@@ -43,19 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
         "url": window.location.href,
         "sameAs": [portfolioData.personal.linkedin],
         "description": portfolioData.personal.summary,
-        "alumniOf": portfolioData.education.map(e => ({
-            "@type": "OrganizationRole",
-            "alumniOf": { "@type": "EducationalOrganization", "name": e.institution }
-        })),
         "worksFor": portfolioData.experience.map(job => ({
             "@type": "EmployeeRole",
             "roleName": job.title,
             "worksFor": { "@type": "Organization", "name": job.company }
         }))
     };
-
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(jsonLd);
     document.head.appendChild(script);
+
+    // 3. Scroll Animations (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 });

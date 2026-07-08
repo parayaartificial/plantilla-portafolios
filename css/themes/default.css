@@ -1,23 +1,20 @@
-/* Tema Corporativo Sobrio (Claro) */
+/* Tema Dark Tech Moderno (Estilo Netlify/Vercel) */
 :root {
-    --bg-color: #FAFAFA;
-    --text-color: #1A1A1A;
-    --primary-color: #0F172A; /* Azul Corporativo Oscuro */
-    --secondary-color: #334155;
-    --text-muted: #64748B;
-    --card-bg: #FFFFFF;
-    --border-color: #E2E8F0;
+    /* Color Palette */
+    --bg-base: #0B0E14; /* Deep dark blue/black */
+    --bg-surface: rgba(15, 23, 42, 0.6);
+    --primary: #3B82F6; /* Blue */
+    --primary-glow: rgba(59, 130, 246, 0.5);
+    --secondary: #10B981; /* Emerald */
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --border: rgba(255, 255, 255, 0.1);
+    
+    /* Gradients */
+    --gradient-text: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    
+    /* Fonts */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
-
-/* 
-Para un tema oscuro (Dark Mode), solo copia este archivo, nombralo dark.css y usa:
-:root {
-    --bg-color: #0F172A;
-    --text-color: #F8FAFC;
-    --primary-color: #38BDF8;
-    --secondary-color: #94A3B8;
-    --text-muted: #64748B;
-    --card-bg: #1E293B;
-    --border-color: #334155;
-}
-*/
