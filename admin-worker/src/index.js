@@ -45,10 +45,20 @@ export default {
         url: `/perfiles/${data.id}/`
       });
 
-      // Generar data.js
+      // Generar data.js de forma segura escapando caracteres
       const dataJsContent = `const portfolioData = {
-    personal: { name: "${data.name}", role: "${data.role}", email: "no-reply@ejemplo.com", phone: "${data.phone}", location: "Remoto", linkedin: "${data.linkedin}", summary: "${data.summary}" },
-    experience: [], education: [], skills: ${JSON.stringify(data.tags)}
+    personal: { 
+        name: ${JSON.stringify(data.name)}, 
+        role: ${JSON.stringify(data.role)}, 
+        email: "contacto@ejemplo.com", 
+        phone: ${JSON.stringify(data.phone)}, 
+        location: "Remoto", 
+        linkedin: ${JSON.stringify(data.linkedin)}, 
+        summary: ${JSON.stringify(data.summary)} 
+    },
+    experience: [], 
+    education: [], 
+    skills: ${JSON.stringify(data.tags)}
 };`;
 
       // --- INICIO RUTINA GITHUB API ---
