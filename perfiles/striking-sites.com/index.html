@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Ejecutivo</title>
+    <meta name="description" content="Curriculum Vitae y Portafolio Ejecutivo.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/themes/default.css">
+    <link rel="stylesheet" href="/css/core.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar Flotante -->
+        <nav class="glass-nav">
+            <div class="nav-brand">PA</div>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-item accent">← Volver al Directorio</a></li>
+                <li><a href="#about" class="nav-item">Perfil</a></li>
+                <li><a href="#experience" class="nav-item">Experiencia</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-container">
+            <!-- Hero Section -->
+            <section id="about" class="hero fade-up">
+                <div class="hero-content">
+                    <div class="badge">Disponible para nuevos retos</div>
+                    <h1 id="ui-name" class="gradient-text">Cargando...</h1>
+                    <h2 id="ui-role"></h2>
+                    <p class="summary glass-panel" id="ui-summary"></p>
+                    <div class="contact-actions">
+                        <a href="#" id="ui-whatsapp" target="_blank" class="btn btn-primary">WhatsApp</a>
+                        <a href="#" id="ui-linkedin" target="_blank" class="btn btn-outline">LinkedIn</a>
+                        <a href="#" id="ui-pdf" class="btn btn-outline" style="border-color: #F43F5E; color: #F43F5E;">📄 Descargar PDF</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Timeline -->
+            <section id="experience" class="fade-up">
+                <h2 class="section-title">Trayectoria <span class="accent">Profesional</span></h2>
+                <div class="timeline" id="ui-experience"></div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="fade-up">
+                <h2 class="section-title">Formación <span class="accent">Académica</span></h2>
+                <div class="grid-2" id="ui-education"></div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="fade-up" style="margin-bottom: 8rem;">
+                <h2 class="section-title">Tech & <span class="accent">Skills</span></h2>
+                <div class="skills-glass-container" id="ui-skills"></div>
+            </section>
+        </main>
+        
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

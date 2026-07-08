@@ -63,5 +63,18 @@
       "pmp"
     ],
     "url": "/perfiles/juan-perez/"
+  },
+  {
+    "id": "striking-sites.com",
+    "name": "Patricio Araya Briceño",
+    "role": "ingeniero en Informatica",
+    "tags": [
+      "ingenieria",
+      "senior",
+      "informatica",
+      "ingles",
+      "avanzado"
+    ],
+    "url": "/perfiles/striking-sites.com/"
   }
 ]
