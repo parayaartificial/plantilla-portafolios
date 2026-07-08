@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const newHtml = `<!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -65,4 +68,16 @@
     <script src="data.js"></script>
     <script src="/js/app.js"></script>
 </body>
-</html>
+</html>`;
+
+const perfilesDir = path.join(__dirname, 'perfiles');
+const dirs = fs.readdirSync(perfilesDir);
+
+for (const d of dirs) {
+    const fullPath = path.join(perfilesDir, d);
+    if (fs.statSync(fullPath).isDirectory()) {
+        fs.writeFileSync(path.join(fullPath, 'index.html'), newHtml, 'utf8');
+    }
+}
+
+console.log("HTML UTF-8 Fixed!");
