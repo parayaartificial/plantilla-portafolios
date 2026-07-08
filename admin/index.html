@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Directorio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/themes/default.css">
+    <link rel="stylesheet" href="/css/core.css">
+    <style>
+        .admin-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .form-group input, .form-group textarea {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: var(--font-body);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .tags-info { font-size: 0.8rem; color: var(--text-muted); }
+        .status-box {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+        .status-box.success { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--secondary); color: var(--secondary); display: block; }
+        .status-box.error { background: rgba(244, 63, 94, 0.1); border: 1px solid #F43F5E; color: #F43F5E; display: block; }
+        .status-box.loading { background: rgba(59, 130, 246, 0.1); border: 1px solid var(--primary); color: var(--primary); display: block; }
+    </style>
+</head>
+<body>
+    <div class="app-wrapper">
+        <main class="content-container" style="margin: 0; width: 100%;">
+            <div class="admin-container">
+                <h1 class="gradient-text" style="font-size: 2.5rem; text-align: center;">Portal Administrativo</h1>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">Añade un nuevo perfil al Directorio de Talento</p>
+
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" id="name" required placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label>Identificador (URL)</label>
+                        <input type="text" id="id" required placeholder="Ej. juan-perez" pattern="[a-z0-9-]+">
+                        <span class="tags-info">Sin espacios ni mayúsculas. Solo guiones. Ej: laura-gomez</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Rol o Especialidad</label>
+                        <input type="text" id="role" required placeholder="Ej. Ingeniero de Software">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono (Para botón WhatsApp)</label>
+                        <input type="text" id="phone" required placeholder="Ej. +56912345678">
+                    </div>
+                    <div class="form-group">
+                        <label>LinkedIn URL</label>
+                        <input type="url" id="linkedin" required placeholder="https://linkedin.com/in/...">
+                    </div>
+                    <div class="form-group">
+                        <label>Resumen Ejecutivo</label>
+                        <textarea id="summary" rows="3" required placeholder="Experto en..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Palabras Clave (Tags de Búsqueda)</label>
+                        <input type="text" id="tags" required placeholder="ingeniería, software, python, senior">
+                        <span class="tags-info">Separados por comas. Estas palabras activarán el perfil en el buscador.</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="submitBtn">Publicar Perfil en GitHub</button>
+                </form>
+
+                <div id="statusBox" class="status-box"></div>
+            </div>
+        </main>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

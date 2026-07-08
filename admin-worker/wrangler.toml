@@ -1,0 +1,6 @@
+name = "admin-worker"
+main = "src/index.js"
+compatibility_date = "2024-07-08"
+
+[vars]
+GITHUB_REPO = "parayaartificial/plantilla-portafolios"
