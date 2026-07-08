@@ -4,7 +4,7 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
     const statusBox = document.getElementById('statusBox');
     
     // URL del worker desplegado en Cloudflare
-    const WORKER_URL = "https://perso-nalizate.pages.dev/"; // Esto se ajustará a la URL real del worker
+    const WORKER_URL = "https://admin-worker.striking.workers.dev/api/save";
     
     btn.disabled = true;
     statusBox.className = 'status-box loading';
