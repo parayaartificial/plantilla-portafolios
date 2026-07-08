@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Ejecutivo</title>
+    <!-- Metadatos Básicos -->
+    <meta name="description" content="Curriculum Vitae y Portafolio Ejecutivo.">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/themes/default.css">
+    <link rel="stylesheet" href="css/core.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="ui-name">Cargando...</h1>
+            <h2 id="ui-role"></h2>
+            <p class="summary" id="ui-summary"></p>
+            <div class="contact-actions">
+                <a href="#" id="ui-email" class="btn btn-primary">Enviar Correo</a>
+                <a href="#" id="ui-linkedin" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            </div>
+        </header>
+
+        <section id="experience">
+            <h2 class="section-title">Experiencia Profesional</h2>
+            <div id="ui-experience"></div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Educación</h2>
+            <div id="ui-education"></div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Habilidades Clave</h2>
+            <div class="skills-container" id="ui-skills"></div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contacto Directo</h2>
+            <!-- Integración Serverless de Web3Forms -->
+            <!-- REEMPLAZAR ACCESS_KEY por la llave real de Web3Forms del cliente -->
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+                <input type="hidden" name="subject" value="Nuevo contacto desde tu Portafolio Ejecutivo">
+                
+                <input type="text" name="name" placeholder="Tu Nombre Completo" required>
+                <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+                <textarea name="message" rows="5" placeholder="Tu Mensaje" required></textarea>
+                
+                <!-- Anti-Spam (Honeypot) -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <button type="submit" class="btn btn-primary">Enviar Mensaje Seguro</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Carga de Datos y Lógica (Separación ATS) -->
+    <script src="data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
