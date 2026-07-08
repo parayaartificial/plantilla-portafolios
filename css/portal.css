@@ -43,8 +43,39 @@
     outline: none;
 }
 
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    font-family: var(--font-body);
+}
+
+.chip:hover {
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+
+.chip.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
 .search-stats {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-size: 0.9rem;
     color: var(--text-muted);
 }

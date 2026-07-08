@@ -2,58 +2,95 @@ document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('searchInput');
     const resultsGrid = document.getElementById('resultsGrid');
     const searchStats = document.getElementById('searchStats');
+    const chips = document.querySelectorAll('.chip');
+    const observerTarget = document.getElementById('observer-target');
     
     let db = [];
+    let currentFiltered = [];
+    let activeFilters = new Set();
+    
+    // Pagination state
+    const ITEMS_PER_PAGE = 6;
+    let currentPage = 1;
 
     // Fetch database
     try {
         const response = await fetch('/database.json');
         db = await response.json();
-        renderResults(db);
-        searchStats.textContent = `${db.length} perfiles indexados.`;
+        currentFiltered = [...db];
+        renderPage();
     } catch (error) {
         console.error("Error cargando la base de datos", error);
         searchStats.textContent = "Error de conexión con el directorio.";
     }
 
-    // Search Engine (Fuzzy simple)
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        
-        if (!query) {
-            renderResults(db);
-            searchStats.textContent = `${db.length} perfiles indexados.`;
-            return;
-        }
-
-        const filtered = db.filter(profile => {
-            const matchName = profile.name.toLowerCase().includes(query);
-            const matchRole = profile.role.toLowerCase().includes(query);
-            const matchTags = profile.tags.some(tag => tag.toLowerCase().includes(query));
-            return matchName || matchRole || matchTags;
+    // Event Listeners
+    searchInput.addEventListener('input', applyFilters);
+    
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const filter = chip.getAttribute('data-filter');
+            if (activeFilters.has(filter)) {
+                activeFilters.delete(filter);
+                chip.classList.remove('active');
+            } else {
+                activeFilters.add(filter);
+                chip.classList.add('active');
+            }
+            applyFilters();
         });
-
-        renderResults(filtered);
-        searchStats.textContent = `${filtered.length} resultados para "${query}".`;
     });
 
-    // Render Function
-    function renderResults(profiles) {
-        resultsGrid.innerHTML = '';
+    // Core Filter Logic
+    function applyFilters() {
+        const query = searchInput.value.toLowerCase().trim();
         
-        if (profiles.length === 0) {
+        currentFiltered = db.filter(profile => {
+            // 1. Text Search
+            let matchesText = true;
+            if (query) {
+                const textTarget = `${profile.name} ${profile.role} ${profile.tags.join(' ')}`.toLowerCase();
+                matchesText = textTarget.includes(query);
+            }
+            
+            // 2. Chip Filters
+            let matchesChips = true;
+            if (activeFilters.size > 0) {
+                const profileTagsLower = profile.tags.map(t => t.toLowerCase());
+                // Must have ALL active filters
+                matchesChips = Array.from(activeFilters).every(filter => 
+                    profileTagsLower.some(t => t.includes(filter))
+                );
+            }
+
+            return matchesText && matchesChips;
+        });
+
+        // Reset pagination
+        currentPage = 1;
+        resultsGrid.innerHTML = '';
+        renderPage();
+    }
+
+    // Virtual Pagination Render
+    function renderPage() {
+        if (currentFiltered.length === 0) {
             resultsGrid.innerHTML = `
                 <div class="empty-state">
                     <h3>No se encontraron perfiles</h3>
-                    <p>Intenta con otras palabras clave como "ingeniería", "ux" o nombres específicos.</p>
+                    <p>Intenta quitando filtros o cambiando la palabra clave.</p>
                 </div>
             `;
+            searchStats.textContent = `0 resultados.`;
             return;
         }
 
-        profiles.forEach(p => {
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        const toRender = currentFiltered.slice(startIndex, endIndex);
+
+        toRender.forEach(p => {
             const tagsHtml = p.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-            
             const cardHtml = `
                 <a href="${p.url}" class="profile-card fade-up visible">
                     <h3 class="profile-name">${p.name}</h3>
@@ -63,9 +100,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             resultsGrid.innerHTML += cardHtml;
         });
+
+        searchStats.textContent = `Mostrando ${Math.min(endIndex, currentFiltered.length)} de ${currentFiltered.length} perfiles.`;
     }
-    
+
+    // Intersection Observer for Infinite Scroll
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            if (currentPage * ITEMS_PER_PAGE < currentFiltered.length) {
+                currentPage++;
+                renderPage();
+            }
+        }
+    }, { rootMargin: '100px' });
+
+    if (observerTarget) {
+        observer.observe(observerTarget);
+    }
+
     setTimeout(() => {
-        document.querySelector('.portal-header').classList.add('visible');
+        const header = document.querySelector('.portal-header');
+        if(header) header.classList.add('visible');
     }, 100);
 });

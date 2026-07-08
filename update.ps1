@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+$ErrorActionPreference = "Stop"
+
+$newHtml = @"
+<!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +19,7 @@
         <nav class="glass-nav">
             <div class="nav-brand">PA</div>
             <ul class="nav-links">
-                <li><a href="/" class="nav-item accent">â† Volver al Directorio</a></li>
+                <li><a href="/" class="nav-item accent">← Volver al Directorio</a></li>
                 <li><a href="#about" class="nav-item">Perfil</a></li>
                 <li><a href="#experience" class="nav-item">Experiencia</a></li>
                 <li><a href="#skills" class="nav-item">Skills</a></li>
@@ -34,7 +37,7 @@
                     <div class="contact-actions">
                         <a href="#" id="ui-whatsapp" target="_blank" class="btn btn-primary">WhatsApp</a>
                         <a href="#" id="ui-linkedin" target="_blank" class="btn btn-outline">LinkedIn</a>
-                        <a href="#" id="ui-pdf" class="btn btn-outline" style="border-color: #F43F5E; color: #F43F5E;">ðŸ“„ Descargar PDF</a>
+                        <a href="#" id="ui-pdf" class="btn btn-outline" style="border-color: #F43F5E; color: #F43F5E;">📄 Descargar PDF</a>
                     </div>
                 </div>
             </section>
@@ -47,7 +50,7 @@
 
             <!-- Education -->
             <section id="education" class="fade-up">
-                <h2 class="section-title">FormaciÃ³n <span class="accent">AcadÃ©mica</span></h2>
+                <h2 class="section-title">Formación <span class="accent">Académica</span></h2>
                 <div class="grid-2" id="ui-education"></div>
             </section>
 
@@ -66,3 +69,10 @@
     <script src="/js/app.js"></script>
 </body>
 </html>
+"@
+
+$dirs = Get-ChildItem -Path "perfiles" -Directory
+foreach ($d in $dirs) {
+    Set-Content -Path "$($d.FullName)/index.html" -Value $newHtml -Encoding utf8
+}
+Write-Output "HTMLs updated with PDF button"

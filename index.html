@@ -24,12 +24,20 @@
                 <div class="search-box glass-panel">
                     <input type="text" id="searchInput" placeholder="Ej. Informática, Diseño, AWS, Gerente..." autocomplete="off">
                 </div>
+                <div class="filter-chips">
+                    <button class="chip" data-filter="remoto">Remoto</button>
+                    <button class="chip" data-filter="junior">Junior</button>
+                    <button class="chip" data-filter="senior">Senior (+5a)</button>
+                    <button class="chip" data-filter="inglés">Inglés</button>
+                </div>
                 <div class="search-stats" id="searchStats">Cargando base de datos...</div>
             </header>
 
             <section class="results-grid" id="resultsGrid">
                 <!-- Resultados renderizados por JS -->
             </section>
+            
+            <div id="observer-target" style="height: 20px; width: 100%; margin-top: 2rem;"></div>
         </main>
     </div>
 
