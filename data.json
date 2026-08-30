@@ -1,0 +1,205 @@
+{
+  "personal": {
+    "name": "Patricio Araya Briceño",
+    "role": "Arquitecto de Soluciones",
+    "company": "Striking Soluciones Informáticas",
+    "email": "patricio.araya.briceno@gmail.com",
+    "phone": "+56973933256",
+    "location": "Concepción, Chile",
+    "linkedin": "https://linkedin.com/in/patricio-araya-briceno",
+    "summary": "Arquitecto de ecosistemas tecnológicos para misiones críticas. Desarrollo Full-Stack, infraestructura de alta disponibilidad, sistemas GIS e integración de IA Generativa para transformar operaciones reactivas en inteligencia proactiva. Experiencia en Chile, Brasil, España, Argentina y Colombia."
+  },
+  "branding": {
+    "company": "Striking",
+    "tagline": "Tecnología que Transforma Operaciones"
+  },
+  "metrics": {
+    "projects": 15,
+    "technologies": 25,
+    "countries": 5,
+    "years": 10
+  },
+  "experience": [
+    {
+      "title": "Encargado del Programa de Actualización de Radiocomunicaciones",
+      "company": "Municipalidad de Concepción",
+      "period": "2025 — Presente",
+      "current": true,
+      "description": "Orquestación tecnológica y desarrollo de una suite de 15 plataformas críticas para la gestión comunal de emergencias, flota, GIS, administración y telecomunicaciones.",
+      "highlights": [
+        "Dirección de la migración y simulación de la red de telecomunicaciones radiales con Motorola DMR",
+        "Arquitectura del Ecosistema de Emergencias: Firebase, Flask, PHP — consolidación de reportes en tiempo real",
+        "Desarrollo de herramientas SIG con transformación DWG a Shapefile (GDAL) y dashboard geoespacial",
+        "Gestión de flota vehicular (40 vehículos) con Apps Script + Google Sheets"
+      ],
+      "tags": ["React", "FastAPI", "Firebase", "Flask", "PHP", "GDAL", "GIS"]
+    },
+    {
+      "title": "Desarrollador de Sistemas de Videovigilancia e IA",
+      "company": "Municipalidad de Talcahuano",
+      "period": "2025 — Presente",
+      "current": true,
+      "description": "Diseño y operación de sistemas avanzados de videovigilancia. Integración de modelos de Inteligencia Artificial para reducir tiempos de respuesta y optimizar la coordinación de móviles de seguridad pública.",
+      "highlights": [
+        "Implementación de IA para detección de incidentes en tiempo real",
+        "Integración de cámaras EO/IR con sistemas de comando y control",
+        "Optimización de tiempos de respuesta en emergencias"
+      ],
+      "tags": ["IA", "CCTV", "Cámaras EO/IR"]
+    },
+    {
+      "title": "Jefe de Departamento",
+      "company": "Heligrafics Chile SPA",
+      "period": "Dic 2019 — Abr 2025",
+      "current": false,
+      "description": "Dirección técnica de operaciones críticas. Reducción de fallas mediante implementación de redes corporativas resilientes y mantenimiento de precisión de tecnología LiDAR aeroespacial.",
+      "highlights": [
+        "Reducción de fallas en operaciones críticas",
+        "Implementación de redes corporativas resilientes (Cisco, Fortinet)",
+        "Mantenimiento de precisión de tecnología LiDAR aeroespacial"
+      ],
+      "tags": ["LiDAR", "Cisco", "Fortinet", "Redes HA"]
+    },
+    {
+      "title": "Soporte Técnico TI",
+      "company": "Arauco — Oficinas Administrativas Concepción",
+      "period": "2014 — 2019",
+      "current": false,
+      "description": "5 años brindando soporte técnico integral a las oficinas corporativas de Arauco en Concepción. Administración de infraestructura, resolución de incidencias críticas y mantenimiento de estaciones de trabajo.",
+      "highlights": [
+        "Soporte L2/L3 a usuarios corporativos",
+        "Administración de Active Directory y Windows Server",
+        "Mantenimiento de hardware y redes"
+      ],
+      "tags": ["Soporte L2/L3", "Active Directory", "Windows Server", "Redes"]
+    },
+    {
+      "title": "Consultoría y Soporte TI Remoto",
+      "company": "Proyectos Internacionales",
+      "period": "2015 — 2024",
+      "current": false,
+      "description": "Asistencia técnica y consultoría en infraestructura para proyectos en Brasil, España, Argentina y Colombia. Soporte multilingüe, integración de sistemas y formación de equipos locales.",
+      "highlights": [
+        "Consultoría en 4 países: Brasil, España, Argentina, Colombia",
+        "Soporte multilingüe (español, portugués, inglés)",
+        "Formación de equipos locales en herramientas de gestión"
+      ],
+      "tags": ["Brasil", "España", "Argentina", "Colombia", "Soporte Remoto"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Simulador Radial de Telecomunicaciones",
+      "description": "Wizard de 5 pasos con calculadora RF, mapa GIS interactivo, generador PDF y análisis de intermodulación para equipos Motorola DMR.",
+      "tech": ["React", "FastAPI", "Leaflet"],
+      "tags": ["radio", "gis", "producción"]
+    },
+    {
+      "name": "Informes de Emergencia",
+      "description": "Formulario multistep de 8 pasos, dashboard KPIs, exportación PDF, autenticación por roles y sincronización en tiempo real. 45 mejoras implementadas.",
+      "tech": ["Firebase", "HTML5", "Firestore"],
+      "tags": ["emergencias", "producción"]
+    },
+    {
+      "name": "Registro de Incidencias PHP",
+      "description": "Sistema RBAC con 3 roles, dashboard ejecutivo con KPIs, carga masiva CSV y filtros avanzados para reportes ciudadanos.",
+      "tech": ["PHP", "MySQL", "Bootstrap 5"],
+      "tags": ["emergencias", "php"]
+    },
+    {
+      "name": "Lector de GIS",
+      "description": "Dashboard de visualización geoespacial con API REST. Lectura automática de shapefiles, soporte WGS84 y UTM 18S.",
+      "tech": ["Flask", "GeoPandas", "Shapely"],
+      "tags": ["gis", "producción"]
+    },
+    {
+      "name": "Gestión de Flota Vehicular",
+      "description": "Sistema de gestión para 40 vehículos municipales. Control de mantenimientos, consumos y documentación asociada.",
+      "tech": ["Apps Script", "Google Sheets"],
+      "tags": ["vehículos", "producción"]
+    },
+    {
+      "name": "Transformación DWG a Shapefile",
+      "description": "Motor de conversión de datos topográficos AutoCAD a formatos GIS estándar para integración con sistemas de emergencia.",
+      "tech": ["Python", "GDAL", "PyProj"],
+      "tags": ["gis", "python"]
+    },
+    {
+      "name": "Dashboard Emergencias V2",
+      "description": "Generador de dashboard HTML desde archivos CSV con mapas interactivos para visualización de emergencias.",
+      "tech": ["Python", "CSV", "Leaflet"],
+      "tags": ["emergencias", "python"]
+    },
+    {
+      "name": "Resumen de Incidencias",
+      "description": "Dashboard Flask + SQLite que consolida datos de incidencias desde múltiples fuentes.",
+      "tech": ["Flask", "SQLite", "Python"],
+      "tags": ["emergencias", "python"]
+    },
+    {
+      "name": "Simulador Radial HTML",
+      "description": "Versión standalone del simulador de red radial. Sin dependencias de servidor, ejecutable desde cualquier navegador.",
+      "tech": ["HTML5", "Leaflet", "Vanilla JS"],
+      "tags": ["radio", "html"]
+    },
+    {
+      "name": "Proyecto Actualización Radial",
+      "description": "Documentación completa de migración: informes técnicos, bases de licitación, BOM y presentaciones ejecutivas.",
+      "tech": ["Documentación", "Licitaciones"],
+      "tags": ["radio", "licitaciones"]
+    },
+    {
+      "name": "Dashboard COPEC",
+      "description": "Dashboard de análisis de consumo de combustible para flota municipal con gráficos y KPIs.",
+      "tech": ["HTML5", "SheetJS", "Charts"],
+      "tags": ["vehículos", "producción"]
+    },
+    {
+      "name": "Fichas de Funcionarios",
+      "description": "Sistema de gestión de fichas de personal con búsqueda, filtros y visualización de datos funcionarios.",
+      "tech": ["HTML5", "Vanilla JS"],
+      "tags": ["personal"]
+    },
+    {
+      "name": "Creador de Licitaciones",
+      "description": "Generador de documentos de licitación con plantillas dinámicas y exportación a múltiples formatos.",
+      "tech": ["React", "Vite"],
+      "tags": ["react", "licitaciones"]
+    },
+    {
+      "name": "Presupuesto 2027",
+      "description": "Documentación presupuestaria y planificación estratégica para el programa de modernización tecnológica.",
+      "tech": ["Documentación", "Planificación"],
+      "tags": ["documentación"]
+    },
+    {
+      "name": "Generador QR",
+      "description": "Herramienta de códigos QR personalizados con branding municipal y tracking de escaneos.",
+      "tech": ["React", "Tailwind", "QR Lib"],
+      "tags": ["react", "utilidades"]
+    }
+  ],
+  "skills": {
+    "fullstack": {
+      "label": "Full-Stack & Datos",
+      "icon": "💻",
+      "items": ["React", "TypeScript", "Vite", "Python", "FastAPI", "Flask", "PHP 8.x", "Firebase", "MySQL", "SQLite", "REST APIs"]
+    },
+    "gis": {
+      "label": "GIS & Geoespacial",
+      "icon": "🌏",
+      "items": ["QGIS", "GDAL", "GeoPandas", "Shapely", "Leaflet", "WGS84 / UTM 18S", "DWG → SHP"]
+    },
+    "infrastructure": {
+      "label": "Redes & Infraestructura",
+      "icon": "🌐",
+      "items": ["Cisco", "Fortinet", "Windows Server", "Linux", "Active Directory", "Soporte L2/L3", "Alta Disponibilidad"]
+    },
+    "ai": {
+      "label": "IA & Especializados",
+      "icon": "🤖",
+      "items": ["IA Generativa", "Automatización", "LiDAR", "Cámaras EO/IR", "Videovigilancia", "Detección", "Apps Script"]
+    }
+  },
+  "countries": ["Chile", "Brasil", "España", "Argentina", "Colombia"]
+}
