@@ -1,14 +1,23 @@
 // Inyección de Datos y Animaciones
 document.addEventListener('DOMContentLoaded', () => {
+    if (typeof portfolioData === 'undefined') return;
+
+    const { personal, experience, education, skills } = portfolioData;
+
     // 1. Inyectar datos UI
-    document.getElementById('ui-name').textContent = portfolioData.personal.name;
-    document.getElementById('ui-role').textContent = portfolioData.personal.role;
-    document.getElementById('ui-summary').textContent = portfolioData.personal.summary;
-    document.getElementById('ui-linkedin').href = portfolioData.personal.linkedin;
+    const uiName = document.getElementById('ui-name');
+    const uiRole = document.getElementById('ui-role');
+    const uiSummary = document.getElementById('ui-summary');
+    const uiLinkedin = document.getElementById('ui-linkedin');
+
+    if (uiName) uiName.textContent = personal.name || '';
+    if (uiRole) uiRole.textContent = personal.role || '';
+    if (uiSummary) uiSummary.textContent = personal.summary || '';
+    if (uiLinkedin) uiLinkedin.href = personal.linkedin || '#';
 
     const btnWa = document.getElementById('ui-whatsapp');
-    if (btnWa && portfolioData.personal.phone) {
-        const phoneClean = portfolioData.personal.phone.replace(/\D/g, '');
+    if (btnWa && personal.phone) {
+        const phoneClean = personal.phone.replace(/\D/g, '');
         btnWa.href = `https://wa.me/${phoneClean}`;
     }
 
@@ -21,30 +30,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const expContainer = document.getElementById('ui-experience');
-    portfolioData.experience.forEach(job => {
-        expContainer.innerHTML += `
-            <div class="job-card">
-                <h3>${job.title}</h3>
-                <h4>${job.company} • ${job.period}</h4>
-                <p>${job.description}</p>
-            </div>
-        `;
-    });
+    if (expContainer && experience && experience.length > 0) {
+        experience.forEach(job => {
+            expContainer.innerHTML += `
+                <div class="job-card">
+                    <h3>${job.title}</h3>
+                    <h4>${job.company} • ${job.period}</h4>
+                    <p>${job.description}</p>
+                </div>
+            `;
+        });
+    }
 
     const eduContainer = document.getElementById('ui-education');
-    portfolioData.education.forEach(edu => {
-        eduContainer.innerHTML += `
-            <div class="edu-card">
-                <h3>${edu.degree}</h3>
-                <p>${edu.institution}<br>${edu.year}</p>
-            </div>
-        `;
-    });
+    if (eduContainer && education && education.length > 0) {
+        education.forEach(edu => {
+            eduContainer.innerHTML += `
+                <div class="edu-card">
+                    <h3>${edu.degree}</h3>
+                    <p>${edu.institution}<br>${edu.year}</p>
+                </div>
+            `;
+        });
+    }
 
     const skillsContainer = document.getElementById('ui-skills');
-    portfolioData.skills.forEach(skill => {
-        skillsContainer.innerHTML += `<span class="skill-tag">${skill}</span>`;
-    });
+    if (skillsContainer && skills && skills.length > 0) {
+        skills.forEach(skill => {
+            skillsContainer.innerHTML += `<span class="skill-tag">${skill}</span>`;
+        });
+    }
 
     // 2. ATS Schema Inyection
     const jsonLd = {

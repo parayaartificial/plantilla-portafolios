@@ -67,13 +67,21 @@
   {
     "id": "striking-sites.com",
     "name": "Patricio Araya Briceño",
-    "role": "ingeniero en Informatica",
+    "role": "Arquitecto de Soluciones",
     "tags": [
-      "ingenieria",
+      "arquitecto",
+      "soluciones",
+      "fullstack",
+      "react",
+      "python",
+      "gis",
+      "firebase",
+      "infraestructura",
       "senior",
-      "informatica",
       "ingles",
-      "avanzado"
+      "avanzado",
+      "remoto",
+      "chile"
     ],
     "url": "/perfiles/striking-sites.com/"
   }
